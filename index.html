@@ -37,6 +37,10 @@ a{color:#2196D9}a:hover{color:#1B7EB8}
 @keyframes cm3{0%,34%{opacity:0;transform:translateY(12px)}38%,90%{opacity:1;transform:none}97%,100%{opacity:0}}
 @keyframes ctype2{0%,40%{opacity:0}42%,50%{opacity:1}52%,100%{opacity:0}}
 @keyframes cm4{0%,51%{opacity:0;transform:translateY(12px)}55%,90%{opacity:1;transform:none}97%,100%{opacity:0}}
+.feat{cursor:pointer}
+.feat.active{border-color:#2196D9 !important;box-shadow:0 0 0 2px rgba(33,150,217,.28),0 10px 22px rgba(33,150,217,.12) !important;transform:translateY(-2px)}
+.feat.active .featChip{color:#2196D9;transform:rotate(180deg)}
+.featChip{transition:transform .2s,color .2s}
 </style>
 </head>
 <body>
@@ -109,31 +113,50 @@ a{color:#2196D9}a:hover{color:#1B7EB8}
     <img src="assets/logo-tg.jpg" alt="КУКУшка — кукушка вылетает из часов" style="width:100%;max-width:360px;height:auto;display:block;margin:0 auto">
   </div>
 
-  <!-- чат-мокап: цикл «сообщение → печатает → ответ» -->
-  <div style="margin:6px 0 0;background:#fff;border:1px solid #E3EDF4;border-radius:22px;padding:16px 14px;display:flex;flex-direction:column;gap:10px;box-shadow:0 10px 30px rgba(30,42,51,.06)">
-    <div style="align-self:flex-end;max-width:84%;background:#E9F3FB;border-radius:16px 16px 4px 16px;padding:10px 13px;font-size:14px;line-height:1.45;animation:cm1 16s ease infinite">Завтра в 11 звонок в банк, в 15 забрать Машу из сада, и дожать отчёт к пятнице</div>
-    <div style="position:relative;align-self:flex-start;max-width:86%;min-height:44px">
-      <div style="position:absolute;inset:auto auto 0 0;display:flex;gap:4px;background:#F1F6FA;border:1px solid #DFEAF2;border-radius:16px;padding:14px 16px;animation:ctype1 16s infinite">
-        <i style="width:7px;height:7px;border-radius:50%;background:#9FB4C4;animation:dotPulse 1.2s 0s infinite"></i>
-        <i style="width:7px;height:7px;border-radius:50%;background:#9FB4C4;animation:dotPulse 1.2s .18s infinite"></i>
-        <i style="width:7px;height:7px;border-radius:50%;background:#9FB4C4;animation:dotPulse 1.2s .36s infinite"></i>
+  <!-- чат-мокап в стиле Telegram: шапка + обои + пузыри (хвосты, время, галочки); анимации сохранены -->
+  <div style="margin:6px 0 0;border-radius:14px;overflow:hidden;box-shadow:0 10px 30px rgba(30,42,51,.1);border:1px solid #D7DEE6">
+    <div style="display:flex;align-items:center;gap:10px;background:#527DA3;padding:9px 14px">
+      <img src="assets/logo-tg.jpg" alt="" style="width:34px;height:34px;border-radius:50%;object-fit:cover;flex:none">
+      <div style="line-height:1.25">
+        <div style="color:#fff;font-weight:700;font-size:14.5px">КУКУшка</div>
+        <div style="color:#CFE3F5;font-size:11.5px">бот · онлайн</div>
       </div>
-      <div style="background:#F1F6FA;border:1px solid #DFEAF2;border-radius:16px 16px 16px 4px;padding:10px 13px;font-size:14px;line-height:1.5;animation:cm2 16s ease infinite">Записала ✓ Три дела:<br>🕚 11:00 — звонок в банк<br>🧒 15:00 — забрать Машу<br>📄 Отчёт — напомню в четверг, чтобы успеть без ночёвки</div>
     </div>
-    <div style="align-self:flex-end;display:flex;align-items:center;gap:8px;background:#E9F3FB;border-radius:16px 16px 4px 16px;padding:10px 13px;animation:cm3 16s ease infinite">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="#2AABEE"><path d="M8 5v14l11-7z"/></svg>
-      <span style="display:flex;align-items:flex-end;gap:2px;height:14px">
-        <i style="width:2.5px;height:6px;background:#2AABEE;border-radius:2px"></i><i style="width:2.5px;height:12px;background:#2AABEE;border-radius:2px"></i><i style="width:2.5px;height:8px;background:#2AABEE;border-radius:2px"></i><i style="width:2.5px;height:14px;background:#2AABEE;border-radius:2px"></i><i style="width:2.5px;height:5px;background:#2AABEE;border-radius:2px"></i><i style="width:2.5px;height:10px;background:#2AABEE;border-radius:2px"></i>
-      </span>
-      <span style="font-size:12px;color:#5B7C96">0:06</span>
-    </div>
-    <div style="position:relative;align-self:flex-start;max-width:86%;min-height:40px">
-      <div style="position:absolute;inset:auto auto 0 0;display:flex;gap:4px;background:#F1F6FA;border:1px solid #DFEAF2;border-radius:16px;padding:14px 16px;animation:ctype2 16s infinite">
-        <i style="width:7px;height:7px;border-radius:50%;background:#9FB4C4;animation:dotPulse 1.2s 0s infinite"></i>
-        <i style="width:7px;height:7px;border-radius:50%;background:#9FB4C4;animation:dotPulse 1.2s .18s infinite"></i>
-        <i style="width:7px;height:7px;border-radius:50%;background:#9FB4C4;animation:dotPulse 1.2s .36s infinite"></i>
+    <div style="background:#CAD3DD;padding:13px 11px;display:flex;flex-direction:column;gap:7px">
+      <div style="align-self:flex-end;max-width:85%;background:#EFFDDE;border-radius:12px 12px 4px 12px;padding:6px 10px 5px;box-shadow:0 1px .5px rgba(0,0,0,.13);display:flex;flex-direction:column;animation:cm1 16s ease infinite">
+        <span style="font-size:13.5px;line-height:1.4;color:#1E2A33">Завтра в 11 звонок в банк, в 15 забрать Машу из сада, и дожать отчёт к пятнице</span>
+        <span style="align-self:flex-end;margin-top:2px;font-size:10.5px;color:#5FA463;white-space:nowrap">11:02 <span style="color:#4FAE4E">✓✓</span></span>
       </div>
-      <div style="background:#F1F6FA;border:1px solid #DFEAF2;border-radius:16px 16px 16px 4px;padding:10px 13px;font-size:14px;line-height:1.5;animation:cm4 16s ease infinite">Услышала: «купить молоко по дороге» — напомню в 18:30 🥛</div>
+      <div style="position:relative;align-self:flex-start;max-width:88%;min-height:42px">
+        <div style="position:absolute;inset:auto auto 0 0;display:flex;gap:4px;background:#fff;border-radius:12px 12px 12px 4px;padding:13px 15px;box-shadow:0 1px .5px rgba(0,0,0,.13);animation:ctype1 16s infinite">
+          <i style="width:7px;height:7px;border-radius:50%;background:#B8C4CE;animation:dotPulse 1.2s 0s infinite"></i>
+          <i style="width:7px;height:7px;border-radius:50%;background:#B8C4CE;animation:dotPulse 1.2s .18s infinite"></i>
+          <i style="width:7px;height:7px;border-radius:50%;background:#B8C4CE;animation:dotPulse 1.2s .36s infinite"></i>
+        </div>
+        <div style="background:#fff;border-radius:12px 12px 12px 4px;padding:7px 10px 5px;box-shadow:0 1px .5px rgba(0,0,0,.13);display:flex;flex-direction:column;animation:cm2 16s ease infinite">
+          <span style="font-size:13.5px;line-height:1.5;color:#1E2A33">Записала ✓ Три дела:<br>🕚 11:00 — звонок в банк<br>🧒 15:00 — забрать Машу<br>📄 Отчёт — напомню в четверг, чтобы успеть без ночёвки</span>
+          <span style="align-self:flex-end;margin-top:2px;font-size:10.5px;color:#9AAAB8">11:02</span>
+        </div>
+      </div>
+      <div style="align-self:flex-end;display:flex;align-items:center;gap:8px;background:#EFFDDE;border-radius:12px 12px 4px 12px;padding:8px 11px;box-shadow:0 1px .5px rgba(0,0,0,.13);animation:cm3 16s ease infinite">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="#4B9E4E"><path d="M8 5v14l11-7z"/></svg>
+        <span style="display:flex;align-items:flex-end;gap:2px;height:14px">
+          <i style="width:2.5px;height:6px;background:#6FB56C;border-radius:2px"></i><i style="width:2.5px;height:12px;background:#6FB56C;border-radius:2px"></i><i style="width:2.5px;height:8px;background:#6FB56C;border-radius:2px"></i><i style="width:2.5px;height:14px;background:#6FB56C;border-radius:2px"></i><i style="width:2.5px;height:5px;background:#6FB56C;border-radius:2px"></i><i style="width:2.5px;height:10px;background:#6FB56C;border-radius:2px"></i>
+        </span>
+        <span style="font-size:11px;color:#5FA463">0:06</span>
+        <span style="font-size:10.5px;color:#5FA463;white-space:nowrap">11:03 <span style="color:#4FAE4E">✓✓</span></span>
+      </div>
+      <div style="position:relative;align-self:flex-start;max-width:88%;min-height:40px">
+        <div style="position:absolute;inset:auto auto 0 0;display:flex;gap:4px;background:#fff;border-radius:12px 12px 12px 4px;padding:13px 15px;box-shadow:0 1px .5px rgba(0,0,0,.13);animation:ctype2 16s infinite">
+          <i style="width:7px;height:7px;border-radius:50%;background:#B8C4CE;animation:dotPulse 1.2s 0s infinite"></i>
+          <i style="width:7px;height:7px;border-radius:50%;background:#B8C4CE;animation:dotPulse 1.2s .18s infinite"></i>
+          <i style="width:7px;height:7px;border-radius:50%;background:#B8C4CE;animation:dotPulse 1.2s .36s infinite"></i>
+        </div>
+        <div style="background:#fff;border-radius:12px 12px 12px 4px;padding:7px 10px 5px;box-shadow:0 1px .5px rgba(0,0,0,.13);display:flex;flex-direction:column;animation:cm4 16s ease infinite">
+          <span style="font-size:13.5px;line-height:1.5;color:#1E2A33">Услышала: «купить молоко по дороге» — напомню в 18:30 🥛</span>
+          <span style="align-self:flex-end;margin-top:2px;font-size:10.5px;color:#9AAAB8">11:03</span>
+        </div>
+      </div>
     </div>
   </div>
   </div>
@@ -151,27 +174,67 @@ a{color:#2196D9}a:hover{color:#1B7EB8}
 <section style="width:100%;max-width:1080px;margin:0 auto;box-sizing:border-box;padding:64px 22px 0">
   <div style="font-size:12.5px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#2196D9">Что умеет</div>
   <h2 style="margin:10px 0 18px;font-size:27px;line-height:1.2;font-weight:900">Всё, чтобы день сложился</h2>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:14px">
-    <div class="card" style="background:#fff;border:1px solid #E3EDF4;border-radius:18px;padding:16px 15px"><div style="font-size:24px">💬</div><div style="font-weight:800;font-size:15px;margin-top:8px;line-height:1.3">Понимает естественную речь</div><div style="font-size:13.5px;line-height:1.5;color:#5E7280;margin-top:5px">Пишешь как другу — она сама заводит задачу с нужным временем</div></div>
-    <div class="card" style="background:#fff;border:1px solid #E3EDF4;border-radius:18px;padding:16px 15px"><div style="font-size:24px">🎙️</div><div style="font-weight:800;font-size:15px;margin-top:8px;line-height:1.3">Голосовой ввод</div><div style="font-size:13.5px;line-height:1.5;color:#5E7280;margin-top:5px">Надиктовал на ходу — распознала и записала</div></div>
-    <div class="card" style="background:#fff;border:1px solid #E3EDF4;border-radius:18px;padding:16px 15px"><div style="font-size:24px">⏰</div><div style="font-weight:800;font-size:15px;margin-top:8px;line-height:1.3">Умные напоминания</div><div style="font-size:13.5px;line-height:1.5;color:#5E7280;margin-top:5px">Заранее и вовремя, повторяющиеся дела — хоть «раз в 3 дня»</div></div>
-    <div class="card" style="background:#fff;border:1px solid #E3EDF4;border-radius:18px;padding:16px 15px"><div style="font-size:24px">📅</div><div style="font-weight:800;font-size:15px;margin-top:8px;line-height:1.3">Любой календарь</div><div style="font-size:13.5px;line-height:1.5;color:#5E7280;margin-top:5px">Google, Яндекс, iCloud, Mail.ru — двусторонняя синхронизация</div></div>
-    <div class="card" style="background:#fff;border:1px solid #E3EDF4;border-radius:18px;padding:16px 15px"><div style="font-size:24px">🧭</div><div style="font-weight:800;font-size:15px;margin-top:8px;line-height:1.3">Живой ИИ-диалог</div><div style="font-size:13.5px;line-height:1.5;color:#5E7280;margin-top:5px">Советы по эффективности под твою ситуацию, а не шаблоны</div></div>
-    <div class="card" style="background:#fff;border:1px solid #E3EDF4;border-radius:18px;padding:16px 15px"><div style="font-size:24px">📊</div><div style="font-weight:800;font-size:15px;margin-top:8px;line-height:1.3">Сводки дня и недели</div><div style="font-size:13.5px;line-height:1.5;color:#5E7280;margin-top:5px">Утром — план, вечером — итог, в конце недели — честная оценка</div></div>
+  <div style="margin:-6px 0 14px;font-size:13.5px;color:#5E7280;font-weight:700">Нажми на карточку — покажу живой пример 👇</div>
+  <div id="featGrid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:14px">
+    <div class="card feat" onclick="showFeat(0)" style="background:#fff;border:1px solid #E3EDF4;border-radius:18px;padding:16px 15px;position:relative"><div style="font-size:24px">💬</div><div style="font-weight:800;font-size:15px;margin-top:8px;line-height:1.3">Понимает естественную речь</div><div style="font-size:13.5px;line-height:1.5;color:#5E7280;margin-top:5px">Пишешь как другу — она сама заводит задачу с нужным временем</div><span class="featChip" style="position:absolute;top:14px;right:15px;font-size:13px;color:#B8C9D6">▾</span></div>
+    <div class="card feat" onclick="showFeat(1)" style="background:#fff;border:1px solid #E3EDF4;border-radius:18px;padding:16px 15px;position:relative"><div style="font-size:24px">🎙️</div><div style="font-weight:800;font-size:15px;margin-top:8px;line-height:1.3">Голосовой ввод</div><div style="font-size:13.5px;line-height:1.5;color:#5E7280;margin-top:5px">Надиктовал на ходу — распознала и записала</div><span class="featChip" style="position:absolute;top:14px;right:15px;font-size:13px;color:#B8C9D6">▾</span></div>
+    <div class="card feat" onclick="showFeat(2)" style="background:#fff;border:1px solid #E3EDF4;border-radius:18px;padding:16px 15px;position:relative"><div style="font-size:24px">⏰</div><div style="font-weight:800;font-size:15px;margin-top:8px;line-height:1.3">Умные напоминания</div><div style="font-size:13.5px;line-height:1.5;color:#5E7280;margin-top:5px">Заранее и вовремя, повторяющиеся дела — хоть «раз в 3 дня»</div><span class="featChip" style="position:absolute;top:14px;right:15px;font-size:13px;color:#B8C9D6">▾</span></div>
+    <div class="card feat" onclick="showFeat(3)" style="background:#fff;border:1px solid #E3EDF4;border-radius:18px;padding:16px 15px;position:relative"><div style="font-size:24px">📅</div><div style="font-weight:800;font-size:15px;margin-top:8px;line-height:1.3">Любой календарь</div><div style="font-size:13.5px;line-height:1.5;color:#5E7280;margin-top:5px">Google, Яндекс, iCloud, Mail.ru — двусторонняя синхронизация</div><span class="featChip" style="position:absolute;top:14px;right:15px;font-size:13px;color:#B8C9D6">▾</span></div>
+    <div class="card feat" onclick="showFeat(4)" style="background:#fff;border:1px solid #E3EDF4;border-radius:18px;padding:16px 15px;position:relative"><div style="font-size:24px">🧭</div><div style="font-weight:800;font-size:15px;margin-top:8px;line-height:1.3">Живой ИИ-диалог</div><div style="font-size:13.5px;line-height:1.5;color:#5E7280;margin-top:5px">Советы по эффективности под твою ситуацию, а не шаблоны</div><span class="featChip" style="position:absolute;top:14px;right:15px;font-size:13px;color:#B8C9D6">▾</span></div>
+    <div class="card feat" onclick="showFeat(5)" style="background:#fff;border:1px solid #E3EDF4;border-radius:18px;padding:16px 15px;position:relative"><div style="font-size:24px">📊</div><div style="font-weight:800;font-size:15px;margin-top:8px;line-height:1.3">Сводки дня и недели</div><div style="font-size:13.5px;line-height:1.5;color:#5E7280;margin-top:5px">Утром — план, вечером — итог, в конце недели — честная оценка</div><span class="featChip" style="position:absolute;top:14px;right:15px;font-size:13px;color:#B8C9D6">▾</span></div>
+  <!-- панель-пример: вставляется под РЯД кликнутой карточки (grid-column:1/-1, JS-репозиция) -->
+  <div id="featWrap" data-cur="-1" style="grid-column:1/-1;display:none;margin-top:2px">
+    <div style="max-width:500px;margin:0 auto;background:#CAD3DD;border-radius:14px;padding:13px 11px;box-shadow:0 10px 26px rgba(30,42,51,.12)">
+      <div class="featEx" data-i="0" style="display:none;flex-direction:column;gap:7px">
+        <div style="align-self:flex-end;max-width:86%;background:#EFFDDE;border-radius:12px 12px 4px 12px;padding:7px 11px;font-size:13.5px;line-height:1.4;color:#1E2A33;box-shadow:0 1px .5px rgba(0,0,0,.13)">созвон с Ромой завтра в 15, и оплатить садик до пятницы</div>
+        <div style="align-self:flex-start;max-width:90%;background:#fff;border-radius:12px 12px 12px 4px;padding:7px 11px;font-size:13.5px;line-height:1.5;color:#1E2A33;box-shadow:0 1px .5px rgba(0,0,0,.13)">Записала ✓<br>🕒 Завтра 15:00 — созвон с Ромой<br>💳 Оплатить садик — напомню в четверг</div>
+      </div>
+      <div class="featEx" data-i="1" style="display:none;flex-direction:column;gap:7px">
+        <div style="align-self:flex-end;display:flex;align-items:center;gap:8px;background:#EFFDDE;border-radius:12px 12px 4px 12px;padding:8px 11px;box-shadow:0 1px .5px rgba(0,0,0,.13)">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="#4B9E4E"><path d="M8 5v14l11-7z"/></svg>
+          <span style="display:flex;align-items:flex-end;gap:2px;height:14px"><i style="width:2.5px;height:6px;background:#6FB56C;border-radius:2px"></i><i style="width:2.5px;height:12px;background:#6FB56C;border-radius:2px"></i><i style="width:2.5px;height:8px;background:#6FB56C;border-radius:2px"></i><i style="width:2.5px;height:14px;background:#6FB56C;border-radius:2px"></i><i style="width:2.5px;height:5px;background:#6FB56C;border-radius:2px"></i></span>
+          <span style="font-size:11px;color:#5FA463">0:04</span>
+        </div>
+        <div style="align-self:flex-start;max-width:90%;background:#fff;border-radius:12px 12px 12px 4px;padding:7px 11px;font-size:13.5px;line-height:1.5;color:#1E2A33;box-shadow:0 1px .5px rgba(0,0,0,.13)">Услышала: «забрать костюм из химчистки после работы» — напомню в 18:00 🧥</div>
+      </div>
+      <div class="featEx" data-i="2" style="display:none;flex-direction:column;gap:7px">
+        <div style="align-self:flex-end;max-width:86%;background:#EFFDDE;border-radius:12px 12px 4px 12px;padding:7px 11px;font-size:13.5px;line-height:1.4;color:#1E2A33;box-shadow:0 1px .5px rgba(0,0,0,.13)">спортзал по пн/ср/пт в 8 утра</div>
+        <div style="align-self:flex-start;max-width:90%;background:#fff;border-radius:12px 12px 12px 4px;padding:7px 11px;font-size:13.5px;line-height:1.5;color:#1E2A33;box-shadow:0 1px .5px rgba(0,0,0,.13)">Поставила 🔁 Пн/Ср/Пт 08:00 — тренировка. Напомню за 30 минут, чтоб успеть собраться 💪</div>
+      </div>
+      <div class="featEx" data-i="3" style="display:none;flex-direction:column;gap:7px">
+        <div style="align-self:flex-end;max-width:86%;background:#EFFDDE;border-radius:12px 12px 4px 12px;padding:7px 11px;font-size:13.5px;line-height:1.4;color:#1E2A33;box-shadow:0 1px .5px rgba(0,0,0,.13)">подключи мой Google-календарь</div>
+        <div style="align-self:flex-start;max-width:90%;background:#fff;border-radius:12px 12px 12px 4px;padding:7px 11px;font-size:13.5px;line-height:1.5;color:#1E2A33;box-shadow:0 1px .5px rgba(0,0,0,.13)">Готово ✓ Вижу твои встречи и добавляю свои — теперь всё в одном месте 📅</div>
+      </div>
+      <div class="featEx" data-i="4" style="display:none;flex-direction:column;gap:7px">
+        <div style="align-self:flex-end;max-width:86%;background:#EFFDDE;border-radius:12px 12px 4px 12px;padding:7px 11px;font-size:13.5px;line-height:1.4;color:#1E2A33;box-shadow:0 1px .5px rgba(0,0,0,.13)">штук 10 дел на сегодня, с чего начать? 😮‍💨</div>
+        <div style="align-self:flex-start;max-width:90%;background:#fff;border-radius:12px 12px 12px 4px;padding:7px 11px;font-size:13.5px;line-height:1.5;color:#1E2A33;box-shadow:0 1px .5px rgba(0,0,0,.13)">Глянула список. Важное и срочное — отчёт и звонок в банк. Начни с отчёта, пока голова свежая; остальное разложим по дню 🧭</div>
+      </div>
+      <div class="featEx" data-i="5" style="display:none;flex-direction:column;gap:7px">
+        <div style="align-self:flex-start;max-width:92%;background:#fff;border-radius:12px 12px 12px 4px;padding:7px 11px;font-size:13.5px;line-height:1.5;color:#1E2A33;box-shadow:0 1px .5px rgba(0,0,0,.13)">Доброе утро! ☀️ Сегодня 4 дела и встреча в 15:00. Главное на день — дожать отчёт. Вечером подведём итог 🐦</div>
+        <div style="align-self:flex-start;max-width:92%;background:#fff;border-radius:12px 12px 12px 4px;padding:7px 11px;font-size:13.5px;line-height:1.5;color:#1E2A33;box-shadow:0 1px .5px rgba(0,0,0,.13)">Вечер: 3 из 4 закрыто — сильный день 👏 Отчёт перенёс на завтра, я напомню.</div>
+      </div>
+    </div>
+  </div>
   </div>
 
   <!-- коуч-диалог -->
   <div style="max-width:648px;margin:28px auto 0;background:#E7F2FA;border-radius:22px;padding:20px 16px">
     <div style="font-weight:900;font-size:16px;margin:0 2px 12px">А когда завал — она рядом 🤍</div>
-    <div style="background:#fff;border-radius:18px;padding:14px 13px;display:flex;flex-direction:column;gap:10px;box-shadow:0 8px 24px rgba(40,90,130,.1)">
-      <div style="align-self:flex-end;max-width:80%;background:#D6ECFB;border-radius:16px 16px 4px 16px;padding:10px 13px;font-size:14px;line-height:1.45">всё, паника, 12 задач, ничего не успеваю 😵</div>
+    <div style="background:#CAD3DD;border-radius:14px;padding:13px 11px;display:flex;flex-direction:column;gap:7px;box-shadow:0 8px 24px rgba(40,90,130,.1)">
+      <div style="align-self:flex-end;max-width:82%;background:#EFFDDE;border-radius:12px 12px 4px 12px;padding:6px 10px 5px;box-shadow:0 1px .5px rgba(0,0,0,.13);display:flex;flex-direction:column">
+        <span style="font-size:13.5px;line-height:1.45;color:#1E2A33">всё, паника, 12 задач, ничего не успеваю 😵</span>
+        <span style="align-self:flex-end;margin-top:2px;font-size:10.5px;color:#5FA463;white-space:nowrap">14:20 <span style="color:#4FAE4E">✓✓</span></span>
+      </div>
       <div style="position:relative;align-self:flex-start;max-width:90%;min-height:44px">
-        <div style="position:absolute;inset:auto auto 0 0;display:flex;gap:4px;background:#EFF5F9;border-radius:16px;padding:14px 16px;animation:typeCycle 9s infinite">
-          <i style="width:7px;height:7px;border-radius:50%;background:#9FB4C4;animation:dotPulse 1.2s 0s infinite"></i>
-          <i style="width:7px;height:7px;border-radius:50%;background:#9FB4C4;animation:dotPulse 1.2s .18s infinite"></i>
-          <i style="width:7px;height:7px;border-radius:50%;background:#9FB4C4;animation:dotPulse 1.2s .36s infinite"></i>
+        <div style="position:absolute;inset:auto auto 0 0;display:flex;gap:4px;background:#fff;border-radius:12px 12px 12px 4px;padding:13px 15px;box-shadow:0 1px .5px rgba(0,0,0,.13);animation:typeCycle 9s infinite">
+          <i style="width:7px;height:7px;border-radius:50%;background:#B8C4CE;animation:dotPulse 1.2s 0s infinite"></i>
+          <i style="width:7px;height:7px;border-radius:50%;background:#B8C4CE;animation:dotPulse 1.2s .18s infinite"></i>
+          <i style="width:7px;height:7px;border-radius:50%;background:#B8C4CE;animation:dotPulse 1.2s .36s infinite"></i>
         </div>
-        <div style="background:#EFF5F9;border-radius:16px 16px 16px 4px;padding:10px 13px;font-size:14px;line-height:1.5;animation:replyCycle 9s infinite">Спокойно, разберём вместе 🤍 Жёсткий дедлайн сегодня только у двух. Начнём с отчёта — 40 минут, пока есть силы. Остальное я подвину и напомню. Погнали?</div>
+        <div style="background:#fff;border-radius:12px 12px 12px 4px;padding:7px 10px 5px;box-shadow:0 1px .5px rgba(0,0,0,.13);display:flex;flex-direction:column;animation:replyCycle 9s infinite">
+          <span style="font-size:13.5px;line-height:1.5;color:#1E2A33">Спокойно, разберём вместе 🤍 Жёсткий дедлайн сегодня только у двух. Начнём с отчёта — 40 минут, пока есть силы. Остальное я подвину и напомню. Погнали?</span>
+          <span style="align-self:flex-end;margin-top:2px;font-size:10.5px;color:#9AAAB8">14:20</span>
+        </div>
       </div>
     </div>
     <div style="margin:12px 2px 0;font-size:13.5px;line-height:1.55;color:#52708A">Режим коуча: приоритеты, «важное vs срочное», разбор завалов по проверенным методикам — GTD, матрица Эйзенхауэра, MIT-рефлексия.</div>
@@ -227,12 +290,27 @@ a{color:#2196D9}a:hover{color:#1B7EB8}
     <span style="background:#fff;border:1.5px solid #DCE9F2;border-radius:99px;padding:9px 15px;font-size:13.5px;font-weight:700">👥 Командные сценарии</span>
     <span style="background:#fff;border:1.5px solid #DCE9F2;border-radius:99px;padding:9px 15px;font-size:13.5px;font-weight:700">📱 Мини-приложение</span>
     <span style="background:#fff;border:1.5px solid #DCE9F2;border-radius:99px;padding:9px 15px;font-size:13.5px;font-weight:700">🔊 Навык в Яндекс.Алисе</span>
+    <span style="background:#fff;border:1.5px solid #DCE9F2;border-radius:99px;padding:9px 15px;font-size:13.5px;font-weight:700">🔓 Открытый код — скоро</span>
+  </div>
+</section>
+
+<!-- ======================= 7.5 · ОБРАТНАЯ СВЯЗЬ ======================= -->
+<section style="width:100%;max-width:620px;margin:0 auto;box-sizing:border-box;padding:64px 22px 0">
+  <div style="background:#E7F2FA;border-radius:22px;padding:26px 20px;text-align:center">
+    <div style="font-size:30px">💬</div>
+    <div style="font-size:12.5px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#2196D9;margin-top:6px">Обратная связь</div>
+    <h2 style="margin:8px 0 0;font-size:24px;line-height:1.25;font-weight:900;text-wrap:pretty">Расскажи, как тебе КУКУшка</h2>
+    <p style="margin:11px auto 0;font-size:15px;line-height:1.55;color:#52708A;max-width:430px;text-wrap:pretty">Что понравилось, чего не хватило, какая идея пришла — напиши прямо КУКУшке в Telegram. Она услышит и передаст — а заодно поможет с делами.</p>
+    <a href="https://t.me/cuckoo2do_bot" target="_blank" rel="noopener" class="btn" style="display:inline-flex;align-items:center;gap:9px;margin-top:18px;background:#2196D9;color:#fff;text-decoration:none;font-weight:800;font-size:16px;padding:14px 26px;border-radius:14px;box-shadow:0 6px 0 #1B7EB8">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M21.4 3.1 2.9 10.4c-1 .4-1 1.5 0 1.9l4.6 1.5 1.7 5.3c.3.9 1.4 1 1.9.3l2.5-3 4.7 3.5c.8.6 1.9.2 2.1-.8l3-14.4c.2-1.1-.8-1.9-2-1.6z"/></svg>
+      Написать КУКУшке
+    </a>
   </div>
 </section>
 
 <!-- ======================= 8 · ФИНАЛ ======================= -->
 <section style="width:100%;max-width:620px;margin:0 auto;box-sizing:border-box;padding:70px 22px 56px;text-align:center">
-  <img src="assets/bird.png" alt="" style="width:86px;height:auto;animation:floatY 4s ease-in-out infinite">
+  <img src="assets/bird.png" alt="" style="display:block;width:86px;height:auto;margin:10px auto 0;animation:floatY 4s ease-in-out infinite">
   <h2 style="margin:18px 0 0;font-size:28px;line-height:1.2;font-weight:900;text-wrap:pretty">Попробуй — она уже ждёт</h2>
   <p style="margin:12px auto 0;font-size:15px;line-height:1.5;color:#5E7280;max-width:300px">Первое дело можно завести прямо сейчас, одним сообщением.</p>
   <a onclick="openConnect(event)" class="btn" style="display:inline-flex;align-items:center;gap:10px;margin-top:22px;background:#2196D9;color:#fff;text-decoration:none;cursor:pointer;font-weight:800;font-size:18px;padding:18px 36px;border-radius:18px;box-shadow:0 8px 0 #1B7EB8">
@@ -240,7 +318,13 @@ a{color:#2196D9}a:hover{color:#1B7EB8}
     Открыть в Telegram
   </a>
   <div style="margin-top:12px;font-size:13.5px;color:#8DA3B3">бесплатно · без установки · за 30 секунд</div>
-  <div style="margin-top:44px;padding-top:18px;border-top:1px solid #E3EDF4;font-size:12.5px;color:#93A9B9">КУКУшка · <a href="https://t.me/cuckoo2do_bot">@cuckoo2do_bot</a> · напомнит вовремя — как кукушка из часов, только умная</div>
+  <div style="margin-top:26px;display:flex;justify-content:center">
+    <span title="Откроем исходный код позже" style="display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:#5E7280;background:#F1F6FA;border:1.5px solid #E3EDF4;border-radius:12px;padding:9px 16px">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49 0-.24-.01-.88-.01-1.73-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.5-1.11-1.5-.91-.63.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.55-1.14-4.55-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05a9.36 9.36 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.06.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.6.69.49A10.26 10.26 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>
+      Открытый код — скоро
+    </span>
+  </div>
+  <div style="margin-top:26px;padding-top:18px;border-top:1px solid #E3EDF4;font-size:12.5px;color:#93A9B9">КУКУшка · <a href="https://t.me/cuckoo2do_bot">@cuckoo2do_bot</a> · напомнит вовремя — как кукушка из часов, только умная</div>
 </section>
 
 </div>
@@ -251,6 +335,27 @@ function openConnect(e){ if(e && e.preventDefault) e.preventDefault(); document.
 function closeConnect(){ document.getElementById('connectModal').style.display='none'; }
 function makeQr(){ var el=document.getElementById('qrbox'); if(el && window.QRCode && !el.hasChildNodes()){ new window.QRCode(el, { text:'https://t.me/cuckoo2do_bot', width:172, height:172, colorDark:'#16303F', colorLight:'#ffffff' }); qrDone=true; } }
 function copyHandle(){ try{ navigator.clipboard.writeText('@cuckoo2do_bot'); }catch(err){} var b=document.getElementById('copyBtn'); if(b){ b.textContent='Скопировано ✓'; setTimeout(function(){ b.textContent='Скопировать'; },2000); } }
+function showFeat(i){
+  var grid=document.getElementById('featGrid');
+  var wrap=document.getElementById('featWrap');
+  var cards=Array.prototype.slice.call(grid.querySelectorAll('.feat'));
+  var exs=document.querySelectorAll('.featEx');
+  var wasCur=wrap.getAttribute('data-cur')===String(i);
+  // спрятать панель (уходит из layout → чистый расчёт рядов) + снять подсветку
+  wrap.style.display='none';
+  cards.forEach(function(c){ c.classList.remove('active'); });
+  if(wasCur){ wrap.setAttribute('data-cur','-1'); return; } // повторный клик — свернуть
+  exs.forEach(function(e){ e.style.display = (e.getAttribute('data-i')===String(i)) ? 'flex' : 'none'; });
+  cards[i].classList.add('active');
+  wrap.setAttribute('data-cur',String(i));
+  // вставить панель ПОД РЯД кликнутой карточки: перед первой карточкой следующего ряда (offsetTop больше)
+  var top=cards[i].offsetTop, before=null;
+  for(var k=i+1;k<cards.length;k++){ if(cards[k].offsetTop>top+2){ before=cards[k]; break; } }
+  if(before){ grid.insertBefore(wrap, before); } else { grid.appendChild(wrap); }
+  wrap.style.display='block';
+  wrap.style.animation='none'; void wrap.offsetWidth; wrap.style.animation='msgIn .3s both';
+  wrap.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
 document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeConnect(); });
 </script>
 </body>
