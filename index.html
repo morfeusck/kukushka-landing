@@ -60,6 +60,8 @@ a{color:#2196D9}a:hover{color:#1B7EB8}
 .changelog .t{font-weight:800;font-size:15.5px;margin:0 0 3px;display:flex;gap:8px;align-items:baseline}
 .changelog .t .em{font-size:17px;flex:none}
 .changelog .d{color:#5E7280;font-size:14px;font-weight:600;line-height:1.5;margin:0}
+.changelog details.cl-open{margin-top:18px}
+.changelog details.cl-open > .tl{margin-top:16px}
 .changelog details.lineage{margin:22px 0 0;border-top:1px dashed #D7E3EC;padding-top:18px}
 .changelog summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:9px;font-weight:800;font-size:14.5px;color:#2196D9;background:#EAF4FB;border:1.5px solid #CFE4F2;border-radius:12px;padding:10px 16px;transition:background .2s}
 .changelog summary::-webkit-details-marker{display:none}
@@ -326,8 +328,10 @@ a{color:#2196D9}a:hover{color:#1B7EB8}
     <h2>КУКУшка растёт</h2>
     <span class="ver-now">сейчас v1.23</span>
   </div>
-  <p class="sub">Мы улучшаем помощницу каждую неделю. Свежее — сверху. Хочешь увидеть весь путь от рождения — разверни родословную внизу.</p>
+  <p class="sub">Мы улучшаем помощницу каждую неделю. Разверни список — увидишь, что нового, и весь путь с рождения.</p>
 
+  <details class="cl-open">
+    <summary><span>📋 Показать, что нового</span><span class="chev">▾</span></summary>
   <div class="tl">
     <div class="row"><div class="meta"><span class="ver">v1.22</span></div>
       <div class="card"><p class="t"><span class="em">📊</span>Недельная сводка — честная рефлексия</p><p class="d">Разбор прошедшей недели по фактам: что закрыл, что зависло. Планирование наперёд не портит статистику.</p></div></div>
@@ -388,6 +392,7 @@ a{color:#2196D9}a:hover{color:#1B7EB8}
       <div class="row beta"><div class="meta"><span class="ver">v0.1</span></div>
         <div class="card"><p class="t"><span class="em">🐣</span>Рождение КУКУшки</p><p class="d">Живой ИИ-ассистент задач и напоминаний со сводками дня — с первого дня заботится о твоих делах.</p></div></div>
     </div>
+  </details>
   </details>
 
   <div class="foot">
