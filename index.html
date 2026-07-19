@@ -42,6 +42,46 @@ a{color:#2196D9}a:hover{color:#1B7EB8}
 .feat.active{border-color:#2196D9 !important;box-shadow:0 0 0 2px rgba(33,150,217,.28),0 10px 22px rgba(33,150,217,.12) !important;transform:translateY(-2px)}
 .feat.active .featChip{color:#2196D9;transform:rotate(180deg)}
 .featChip{transition:transform .2s,color .2s}
+/* ===== Секция «Что нового» / ченджлог (SPRINT-32 D — неймспейс .changelog, чтоб не конфликтовать с глобальным .card и пр.) ===== */
+.changelog{width:100%;max-width:680px;margin:0 auto;box-sizing:border-box;padding:64px 22px 0}
+.changelog .eyebrow{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#2196D9}
+.changelog .head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin:10px 0 4px}
+.changelog h2{font-size:30px;font-weight:900;margin:0;letter-spacing:-.01em;text-wrap:balance}
+.changelog .ver-now{font-weight:800;font-size:12px;color:#2196D9;background:rgba(33,150,217,.12);padding:5px 11px;border-radius:99px;white-space:nowrap}
+.changelog .sub{color:#5E7280;font-size:15px;font-weight:600;margin:6px 0 30px;line-height:1.55}
+.changelog .tl{position:relative;display:flex;flex-direction:column;gap:2px}
+.changelog .tl::before{content:"";position:absolute;left:63px;top:8px;bottom:14px;width:2px;background:linear-gradient(#CFE4F2,#E8EFF5)}
+.changelog .row{position:relative;display:grid;grid-template-columns:54px 1fr;column-gap:18px;padding:9px 0 13px;align-items:start}
+.changelog .meta{display:flex;justify-content:flex-start;padding-top:4px}
+.changelog .ver{font-weight:900;font-size:13.5px;color:#1E2A33;letter-spacing:-.01em;background:#EAF4FB;padding:3px 8px;border-radius:8px;white-space:nowrap}
+.changelog .row::before{content:"";position:absolute;left:59px;top:11px;width:10px;height:10px;border-radius:50%;background:#fff;border:2.5px solid #2196D9;box-shadow:0 0 0 3px #FCFDFE;z-index:2}
+.changelog .card{background:#fff;border:1.5px solid #E3EDF4;border-radius:15px;padding:12px 16px;transition:transform .2s ease,box-shadow .2s ease,border-color .2s}
+.changelog .card:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(30,42,51,.08);border-color:#CFE4F2}
+.changelog .t{font-weight:800;font-size:15.5px;margin:0 0 3px;display:flex;gap:8px;align-items:baseline}
+.changelog .t .em{font-size:17px;flex:none}
+.changelog .d{color:#5E7280;font-size:14px;font-weight:600;line-height:1.5;margin:0}
+.changelog details.lineage{margin:22px 0 0;border-top:1px dashed #D7E3EC;padding-top:18px}
+.changelog summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:9px;font-weight:800;font-size:14.5px;color:#2196D9;background:#EAF4FB;border:1.5px solid #CFE4F2;border-radius:12px;padding:10px 16px;transition:background .2s}
+.changelog summary::-webkit-details-marker{display:none}
+.changelog summary:hover{background:#DEEEF9}
+.changelog summary .chev{transition:transform .25s;font-size:12px}
+.changelog details[open] summary .chev{transform:rotate(180deg)}
+.changelog .lineage-note{color:#93A2AD;font-size:13px;font-weight:600;margin:14px 0 16px;line-height:1.5}
+.changelog .row.beta .ver{background:#F1F4F6;color:#6E7C86}
+.changelog .row.beta::before{border-color:#B8CEDD}
+.changelog .row.beta .card{background:#FBFCFD;border-color:#EBF0F4}
+.changelog .row.beta .t{font-size:14.5px;color:#3D4A54}
+.changelog .row.beta .d{font-size:13.5px}
+.changelog .epoch{padding:16px 0 2px 72px;font-size:11.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:#8A98A3}
+.changelog .foot{display:flex;align-items:center;justify-content:flex-start;flex-wrap:wrap;gap:12px;margin:24px 0 0;padding-left:8px}
+.changelog .sub-note{font-size:12.5px;color:#93A2AD;font-weight:600}
+@media(max-width:520px){
+  .changelog .row{grid-template-columns:44px 1fr;column-gap:18px}
+  .changelog .tl::before{left:54px}
+  .changelog .row::before{left:50px}
+  .changelog .ver{font-size:12.5px;padding:3px 6px}
+  .changelog .epoch{padding-left:62px}
+}
 </style>
 </head>
 <body>
@@ -276,6 +316,82 @@ a{color:#2196D9}a:hover{color:#1B7EB8}
       <div style="display:flex;gap:12px;align-items:flex-start"><span style="font-size:20px">☁️</span><div style="font-size:14.5px;line-height:1.55;color:#C2D9E8"><b style="color:#fff">Облачная edge-инфраструктура</b> — быстро и надёжно, ничего не нужно устанавливать</div></div>
       <div style="display:flex;gap:12px;align-items:flex-start"><span style="font-size:20px">📍</span><div style="font-size:14.5px;line-height:1.55;color:#C2D9E8"><b style="color:#fff">Там, где ты уже живёшь</b> — сейчас Telegram, на подходе Яндекс Станции, Max и другие точки</div></div>
     </div>
+  </div>
+</section>
+
+<!-- ======================= 6.5 · ЧТО НОВОГО (ченджлог, SPRINT-32 D) ======================= -->
+<section class="changelog">
+  <div class="eyebrow">🔔 Что нового</div>
+  <div class="head">
+    <h2>КУКУшка растёт</h2>
+    <span class="ver-now">сейчас v1.23</span>
+  </div>
+  <p class="sub">Мы улучшаем помощницу каждую неделю. Свежее — сверху. Хочешь увидеть весь путь от рождения — разверни родословную внизу.</p>
+
+  <div class="tl">
+    <div class="row"><div class="meta"><span class="ver">v1.22</span></div>
+      <div class="card"><p class="t"><span class="em">📊</span>Недельная сводка — честная рефлексия</p><p class="d">Разбор прошедшей недели по фактам: что закрыл, что зависло. Планирование наперёд не портит статистику.</p></div></div>
+    <div class="row"><div class="meta"><span class="ver">v1.21</span></div>
+      <div class="card"><p class="t"><span class="em">🎯</span>Сводки судят по фактам</p><p class="d">Срочность считается по реальным датам задач — никакого «горит!» для дела с дедлайном в 2027-м.</p></div></div>
+    <div class="row"><div class="meta"><span class="ver">v1.19</span></div>
+      <div class="card"><p class="t"><span class="em">🗓️</span>Точность дат</p><p class="d">День недели и дату теперь считает код, а не модель — напоминания больше не падают «не в тот день».</p></div></div>
+    <div class="row"><div class="meta"><span class="ver">v1.18</span></div>
+      <div class="card"><p class="t"><span class="em">🔔</span>Режимы уведомлений</p><p class="d">«Тихо до понедельника» держится сколько нужно и <b>сам возвращается</b>. Активный режим виден в <code>/уведомления</code>.</p></div></div>
+    <div class="row"><div class="meta"><span class="ver">v1.17</span></div>
+      <div class="card"><p class="t"><span class="em">↪️</span>Надёжный перенос</p><p class="d">«Перенеси на завтра» теперь реально переносит, а не только рапортует.</p></div></div>
+    <div class="row"><div class="meta"><span class="ver">v1.16</span></div>
+      <div class="card"><p class="t"><span class="em">🧭</span>Проактивный планировщик</p><p class="d">Видит наложения и предлагает свободный слот. Ответы на конфликты — <b>в ~4 раза быстрее</b>.</p></div></div>
+    <div class="row"><div class="meta"><span class="ver">v1.13</span></div>
+      <div class="card"><p class="t"><span class="em">🤝</span>Встреча ≠ задача</p><p class="d">Встреча/созвон — как интервал с длительностью: предупреждает о наложении, не дёргает посреди встречи.</p></div></div>
+    <div class="row"><div class="meta"><span class="ver">v1.11</span></div>
+      <div class="card"><p class="t"><span class="em">🎙️</span>Голос точнее + сводки без «воды»</p><p class="d">Распознавание держится ближе к сказанному; обзоры — по реальным задачам, без выдуманных имён.</p></div></div>
+    <div class="row"><div class="meta"><span class="ver">v1.10</span></div>
+      <div class="card"><p class="t"><span class="em">🔁</span>Повтор «раз в N дней»</p><p class="d">Гибкие рутины на автопилоте + более живой характер и аккуратные выходные.</p></div></div>
+    <div class="row"><div class="meta"><span class="ver">v1.8</span></div>
+      <div class="card"><p class="t"><span class="em">📅</span>Двусторонний календарь</p><p class="d">Правки в календаре подтягиваются в задачи; дело со временем → короткое событие; время напоминания меняется без сдвига дела.</p></div></div>
+    <div class="row"><div class="meta"><span class="ver">v1.5</span></div>
+      <div class="card"><p class="t"><span class="em">🔁</span>Повторяющиеся задачи</p><p class="d">Ежедневно/еженедельно, значок 🔁, авто-пересоздание при выполнении.</p></div></div>
+    <div class="row"><div class="meta"><span class="ver">v1.4</span></div>
+      <div class="card"><p class="t"><span class="em">💬</span>Обратная связь + коучинг</p><p class="d"><code>/feedback</code> — идея или жалоба прямо из бота; «важнейшая задача дня» в утренней сводке.</p></div></div>
+    <div class="row"><div class="meta"><span class="ver">v1.2</span></div>
+      <div class="card"><p class="t"><span class="em">🧠</span>Умный роутинг + карточки</p><p class="d">Бот сам понимает намерение сообщения; задачи — карточками с кнопками ✅ ▶️ ↪️ 🗑.</p></div></div>
+    <div class="row"><div class="meta"><span class="ver">v1.1</span></div>
+      <div class="card"><p class="t"><span class="em">🌱</span>Живой характер + коуч</p><p class="d">Персональный коуч-навык, сводка с оценкой эффективности, понимает «я сделал X» без кнопок.</p></div></div>
+    <div class="row"><div class="meta"><span class="ver">v1.0</span></div>
+      <div class="card"><p class="t"><span class="em">🚀</span>Выход из беты</p><p class="d">Мягкое удаление с кнопкой «Вернуть», честные подтверждения — бот не говорит «готово», если дело не сделано.</p></div></div>
+  </div>
+
+  <details class="lineage">
+    <summary><span>🐣 Показать историю с самого рождения</span><span class="chev">▾</span></summary>
+    <p class="lineage-note">Ещё до релиза КУКУшка прошла путь от домашнего компьютера до облака. Вот как всё начиналось:</p>
+    <div class="tl">
+      <div class="epoch">☁️ Облачная эра (Cloudflare)</div>
+      <div class="row beta"><div class="meta"><span class="ver">v2.9<span style="opacity:.6;font-size:10px"> β</span></span></div>
+        <div class="card"><p class="t"><span class="em">🙋</span>Онбординг с выбором режима</p><p class="d">Знакомство с выбором, что и когда присылать; тёплое «Ку-Ку!» при старте.</p></div></div>
+      <div class="row beta"><div class="meta"><span class="ver">v2.8<span style="opacity:.6;font-size:10px"> β</span></span></div>
+        <div class="card"><p class="t"><span class="em">⚙️</span>Гибкие режимы + таблица задач</p><p class="d">Настройка «что и когда присылать», наглядная таблица в чате, дневной ритм и вечерняя рефлексия.</p></div></div>
+      <div class="row beta"><div class="meta"><span class="ver">v2.2<span style="opacity:.6;font-size:10px"> β</span></span></div>
+        <div class="card"><p class="t"><span class="em">🎙️</span>Голос стал точнее и быстрее</p><p class="d">Перешли на более сильное распознавание речи.</p></div></div>
+      <div class="row beta"><div class="meta"><span class="ver">v2.1<span style="opacity:.6;font-size:10px"> β</span></span></div>
+        <div class="card"><p class="t"><span class="em">🌍</span>Часовой пояс и знакомство</p><p class="d">При первом входе спрашивает имя и часовой пояс — напоминания точно по твоему времени.</p></div></div>
+      <div class="row beta"><div class="meta"><span class="ver">v2.0<span style="opacity:.6;font-size:10px"> β</span></span></div>
+        <div class="card"><p class="t"><span class="em">☁️</span>Переезд в облако — всегда онлайн</p><p class="d">КУКУшка стала сервисом 24/7: работает независимо от любого компьютера, надёжно и для многих сразу.</p></div></div>
+      <div class="epoch">💻 Эра домашнего ПК — где всё началось</div>
+      <div class="row beta"><div class="meta"><span class="ver">v0.8</span></div>
+        <div class="card"><p class="t"><span class="em">👥</span>Многопользовательский режим</p><p class="d">Бот открылся для всех — у каждого свои задачи, имя, календарь и настройки.</p></div></div>
+      <div class="row beta"><div class="meta"><span class="ver">v0.7</span></div>
+        <div class="card"><p class="t"><span class="em">📆</span>Календари Яндекс / Mail / iCloud</p><p class="d">Подключение не только Google, но и других календарей.</p></div></div>
+      <div class="row beta"><div class="meta"><span class="ver">v0.6</span></div>
+        <div class="card"><p class="t"><span class="em">🎙️</span>Голосовой ввод</p><p class="d">Можно надиктовать задачу голосом — КУКУшка распознает.</p></div></div>
+      <div class="row beta"><div class="meta"><span class="ver">v0.2</span></div>
+        <div class="card"><p class="t"><span class="em">📅</span>Google-календарь</p><p class="d">Задачи со временем появляются в календаре и синхронизируются в обе стороны.</p></div></div>
+      <div class="row beta"><div class="meta"><span class="ver">v0.1</span></div>
+        <div class="card"><p class="t"><span class="em">🐣</span>Рождение КУКУшки</p><p class="d">Живой ИИ-ассистент задач и напоминаний со сводками дня — с первого дня заботится о твоих делах.</p></div></div>
+    </div>
+  </details>
+
+  <div class="foot">
+    <span class="sub-note">крупные обновления приходят и в чат — прямо от КУКУшки</span>
   </div>
 </section>
 
