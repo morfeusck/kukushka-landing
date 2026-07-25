@@ -6,8 +6,18 @@
 - `assets/` — картинки (bird.png, logo-clock.svg).
 - Внешние зависимости: Google Fonts (Nunito) + qrcodejs (CDN).
 
+## Адрес
+
+**Основной домен — [kuku-ai.ru](https://kuku-ai.ru/)** (с 25.07.2026). `kukubot.ru` — второй купленный домен, ведёт 301-редиректом на основной. `kukushka-landing.pages.dev` остаётся техническим адресом Pages (не для публикации).
+
+Мета настроены на основной домен: `canonical`, `og:url`, `og:image`, `sitemap.xml`, `robots.txt`. При смене домена править **все** эти места разом — иначе поисковик получит противоречивые сигналы.
+
 ## Хостинг
-Cloudflare Pages (проект `kukushka-landing`). Деплой: `npx wrangler pages deploy . --project-name=kukushka-landing`.
+Cloudflare Pages (проект `kukushka-landing`). Деплой: `npx wrangler pages deploy . --project-name=kukushka-landing --branch=main`.
+
+⚠️ **`--branch=main` обязателен:** боевая ветка проекта — `main`, а репозиторий на `master`. Без явного флага деплой уходит в **preview**, а прод остаётся старым (наступали 25.07: «задеплоил» ≠ «в проде», поймали проверкой ответа по URL).
+
+`404.html` в корне обязателен: без него Pages отдаёт `200` с главной на любой несуществующий путь (soft-404 → дубли главной для поисковика).
 
 ## Правки
 Дизайн-исходник живёт в Claude Design (проект «Лендинг для КУКУшки»). Мелкий копирайт — можно править `index.html` напрямую (поиск по тексту). Крупные изменения — в дизайне, пересобрать.
